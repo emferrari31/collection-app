@@ -12,15 +12,12 @@
 
 <div class="mainContainer">
     <?php
-    $db = new PDO('mysql:host=db; dbname=cameras', 'root', 'password');
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-
+    require_once 'dbCameras.php';
+    global $db;
     $query = $db->prepare("SELECT `brandName`, `model`, `type`, `megapixels`, `weight(g)`, `images` FROM `cameras`");
     $query->execute();
     $results = $query->fetchAll();
-
-
+    
     foreach ($results as $result) {
         echo '<div class="imageAndTextContainer">';
         echo '<div class = "imageContainer">';
