@@ -54,12 +54,30 @@ h1 {
     }
 }
 
+
+
+.formSection {
+    padding: 2rem;
+}
+
 .formContainer {
-        margin: 20px;
+        display:flex;
+        padding: 20px;
         font-family: sans-serif;
+        background-color: #f6f1f1;
 }
 
 input[type=text] {
+    display:flex;
+    flex-wrap: wrap;
     padding: 5px;
-    /*width: 30%;*/
+    border: 1px solid blue;
+    width: 250px;
+    align-content:space-around;
 }
+
+.button {
+    background-color: #bbc4cf;
+    padding: 2px;
+}
+

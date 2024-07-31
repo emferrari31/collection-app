@@ -70,17 +70,19 @@
     }
     ?>
 </div>
+<div class="formSection">
+<h2>Add to the collection: </h2>
 <div class="formContainer">
-    <h2>Add to the collection: </h2>
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
-        Brand Name: <input required type="text" name="brandName"><br>
-        Model: <input required type="text" name="model"><br>
-        Type: <input reuired type="text" name="type"><br>
-        Megapixels: <input type="text" name="megapixels"><br>
-        Weight(g): <input required type="text" name="weight(g)"><br>
-        Image: <input required type="text" name="images"><br><br>
-        <input type="submit">
+        <p>Brand Name*: <input required type="text" name="brandName"></p>
+        <p>Model*: <input required type="text" name="model"></p>
+        <p>Type*: <input reuired type="text" name="type"></p>
+        <p>Megapixels: <input type="text" name="megapixels"></p>
+        <p>Weight(g)*: <input required type="text" name="weight(g)"></p>
+        <p>Image*: <input required type="text" name="images"></p>
+        <input type="submit" class="button">
     </form>
+</div>
 </div>
 
 </body>
