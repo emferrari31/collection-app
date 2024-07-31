@@ -4,7 +4,7 @@
 
 h1 {
     font-family: sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     text-align: center;
     padding: 3rem 0;
 }
@@ -49,8 +49,33 @@ h1 {
     }
 
     .textContainer {
-        flex-container: row;
         padding: 10px;
         align-content: center;
     }
 }
+
+.formSection {
+    padding: 2rem;
+}
+
+.formContainer {
+        display:flex;
+        padding: 20px;
+        font-family: sans-serif;
+        background-color: #f6f1f1;
+}
+
+input[type=text] {
+    display:flex;
+    flex-wrap: wrap;
+    padding: 5px;
+    border: 1px solid blue;
+    width: 250px;
+    align-content:space-around;
+}
+
+.button {
+    background-color: #bbc4cf;
+    padding: 2px;
+}
+
