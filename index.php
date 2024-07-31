@@ -15,16 +15,15 @@
     require_once 'dbCameras.php';
     global $db;
 
-
     $brandName = $model = $type = $megapixels = $weight = $images = '';
 
     if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
         $brandName = test_input($_POST['brandName']);
         $model = test_input($_POST['model']);
         $type = test_input($_POST['type']);
-        $megapixels = test_input($_POST['megapixels']);
+        $megapixels = isset($_POST['megapixels']) ? test_input($_POST['megapixels']) : null;
         $weight = test_input($_POST['weight(g)']);
-        //$images = test_input($_POST['images']);
+        $images = test_input($_POST['images']);
 
         $query = $db->prepare("INSERT INTO cameras (`brandName`, `model`, `type`, `megapixels`, `weight(g)`, `images`) VALUES (:brandName, :model, :type, :megapixels, :weight, :images)");
         $query->bindParam(':brandName', $brandName);
@@ -51,9 +50,7 @@
         {
             return null;
         }
-
     }
-
     $query = $db->prepare("SELECT `brandName`, `model`, `type`, `megapixels`, `weight(g)`, `images` FROM `cameras`");
     $query->execute();
     $results = $query->fetchAll();
@@ -61,7 +58,7 @@
     foreach ($results as $result) {
         echo '<div class="imageAndTextContainer">';
         echo '<div class = "imageContainer">';
-        echo '<img class="imagesClass" src="' . $result['images'] . '" alt="camera">';
+        echo '<img class="imagesClass" src="' . $result['images'] . '" alt="image of a camera">';
         echo '<br><br>';
         echo '</div>';
 
@@ -73,19 +70,19 @@
     }
     ?>
 </div>
-<div>
+<div class="formContainer">
     <h2>Add to the collection: </h2>
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
-        Brand Name: <input type="text" name="brandName"><br>
-        Model: <input type="text" name="model"><br>
-        Type: <input type="text" name="type"><br>
+        Brand Name: <input required type="text" name="brandName"><br>
+        Model: <input required type="text" name="model"><br>
+        Type: <input reuired type="text" name="type"><br>
         Megapixels: <input type="text" name="megapixels"><br>
-        Weight(g): <input type="text" name="weight(g)"><br>
-        Image: <input type="text" name="image"><br>
+        Weight(g): <input required type="text" name="weight(g)"><br>
+        Image: <input required type="text" name="images"><br><br>
         <input type="submit">
     </form>
-
 </div>
+
 </body>
 
 </html>
