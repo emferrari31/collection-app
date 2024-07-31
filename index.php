@@ -7,16 +7,12 @@
     <link rel="stylesheet" href="collectionApp.css">
 </head>
 <body>
-
 <h1>Camera Collection App</h1>
-
 <div class="mainContainer">
     <?php
     require_once 'dbCameras.php';
     global $db;
-
     $brandName = $model = $type = $megapixels = $weight = $images = '';
-
     if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
         $brandName = test_input($_POST['brandName']);
         $model = test_input($_POST['model']);
@@ -24,7 +20,6 @@
         $megapixels = isset($_POST['megapixels']) ? test_input($_POST['megapixels']) : null;
         $weight = test_input($_POST['weight(g)']);
         $images = test_input($_POST['images']);
-
         $query = $db->prepare("INSERT INTO cameras (`brandName`, `model`, `type`, `megapixels`, `weight(g)`, `images`) VALUES (:brandName, :model, :type, :megapixels, :weight, :images)");
         $query->bindParam(':brandName', $brandName);
         $query->bindParam(':model', $model);
@@ -32,11 +27,8 @@
         $query->bindParam(':megapixels', $megapixels);
         $query->bindParam(':weight', $weight);
         $query->bindParam(':images', $images);
-
         $query->execute();
-
     }
-
     function test_input($data)
     {
         if ($data)
@@ -63,8 +55,11 @@
         echo '</div>';
 
         echo '<div class = "textContainer">';
-        echo $result['brandName'] . " <br>" . $result['model'] . " <br>" . $result['type'] . " <br>" .
-            $result['megapixels'] . " megapixels<br>" . $result['weight(g)'] . "g<br><br>";
+        echo '<p>' . $result['brandName'] . '</p>';
+        echo '<p>' . $result['model'] . '</p>';
+        echo '<p>' . $result['type'] . '</p>';
+        echo '<p>' . $result['megapixels'] . " megapixels </p>";
+        echo '<p>' . $result['weight(g)'] . "g</p>";
         echo '</div>';
         echo '</div>';
     }
@@ -84,7 +79,5 @@
     </form>
 </div>
 </div>
-
 </body>
-
 </html>
