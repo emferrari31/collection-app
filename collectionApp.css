@@ -22,9 +22,11 @@ h1 {
 }
 
 .textContainer {
-    display: flex;
+    /*display: flex;*/
+    flex-direction: column;
     justify-content: center;
     padding: 20px;
+    text-align: center;
 }
 
 @media screen and (min-width: 640px) {
@@ -44,13 +46,8 @@ h1 {
         align-items: center;
     }
 
-    .imageContainer {
-        flex-direction: row;
-    }
-
     .textContainer {
-        flex-container: row;
-        padding: 10px;
+        padding: 20px;
         align-content: center;
     }
 }

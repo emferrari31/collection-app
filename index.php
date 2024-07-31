@@ -7,9 +7,7 @@
     <link rel="stylesheet" href="collectionApp.css">
 </head>
 <body>
-
 <h1>Camera Collection App</h1>
-
 <div class="mainContainer">
     <?php
     require_once 'dbCameras.php';
@@ -17,17 +15,18 @@
     $query = $db->prepare("SELECT `brandName`, `model`, `type`, `megapixels`, `weight(g)`, `images` FROM `cameras`");
     $query->execute();
     $results = $query->fetchAll();
-    
+
     foreach ($results as $result) {
         echo '<div class="imageAndTextContainer">';
         echo '<div class = "imageContainer">';
         echo '<img class="imagesClass" src="' . $result['images'] . '" alt="camera">';
-        echo '<br><br>';
         echo '</div>';
-
         echo '<div class = "textContainer">';
-        echo $result['brandName'] . " <br>" . $result['model'] . " <br>" . $result['type'] . " <br>" .
-            $result['megapixels'] . " megapixels<br>" . $result['weight(g)'] . "g<br><br>";
+        echo '<p>' . $result['brandName'] . '</p>';
+        echo '<p>' . $result['model'] . '</p>';
+        echo '<p>' . $result['type'] . '</p>';
+        echo '<p>' . $result['megapixels'] . ' megapixels'.'</p>';
+        echo '<p>' . $result['weight(g)'] . 'g'.' </p>';
         echo '</div>';
         echo '</div>';
     }
