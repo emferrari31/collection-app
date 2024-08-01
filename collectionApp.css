@@ -21,8 +21,6 @@ h1 {
 }
 
 .textContainer {
-    justify-content: center;
-    padding: 20px;
     text-align: center;
 }
 
@@ -83,11 +81,6 @@ input[type=text] {
 
     .imageContainer {
         flex-direction: row;
-    }
-
-    .textContainer {
-        padding: 10px;
-        align-content: center;
     }
 }
 
