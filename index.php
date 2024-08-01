@@ -5,11 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
     <title>Camera Collection App</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Shrikhand&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="collectionApp.css">
 </head>
 <body>
 <div id="div_id"></div>
-<h1>Camera Collection App</h1>
+
+<h1>My Camera Collection</h1>
 <div class="mainContainer">
     <?php
     require_once 'dbCameras.php';
@@ -49,19 +55,25 @@
     $query->execute();
     $results = $query->fetchAll();
     foreach ($results as $result) {
-        echo '<div class="imageAndTextContainer">';
-        echo '<div class = "imageContainer">';
-        echo '<img class="imagesClass" src="' . $result['images'] . '" alt="image of a camera">';
-        echo '<br><br>';
-        echo '</div>';
-        echo '<div class = "textContainer">';
-        echo '<p>' . $result['brandName'] . '</p>';
-        echo '<p>' . $result['model'] . '</p>';
-        echo '<p>' . $result['type'] . '</p>';
-        echo '<p>' . $result['megapixels'] . " megapixels </p>";
-        echo '<p>' . $result['weight(g)'] . "g</p>";
-        echo '</div>';
-        echo '</div>';
+            if ($results) {
+                echo '<div class="imageAndTextContainer">';
+                echo '<div class = "imageContainer">';
+                echo '<img class="imagesClass" src="' . $result['images'] . '" alt="image of a camera">';
+                echo '<br><br>';
+                echo '</div>';
+                echo '<div class = "textContainer">';
+                echo '<p>Brand Name: ' . $result['brandName'] . '</p>';
+                echo '<p>Model: ' . $result['model'] . '</p>';
+                echo '<p>Type: ' . $result['type'] . '</p>';
+                echo '<p>Megapixels: ' . $result['megapixels'] . " MP </p>";
+                echo '<p>Weight(g): ' . $result['weight(g)'] . "g</p>";
+                echo '</div>';
+                echo '</div>';
+            }
+            else
+            {
+                return null;
+            }
     }
     ?>
 </div>
