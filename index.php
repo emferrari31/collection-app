@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
     <title>Camera Collection App</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="collectionApp.css">
 </head>
 <body>
+<div id="div_id"></div>
 <h1>Camera Collection App</h1>
 <div class="mainContainer">
     <?php
@@ -46,14 +48,12 @@
     $query = $db->prepare("SELECT `brandName`, `model`, `type`, `megapixels`, `weight(g)`, `images` FROM `cameras`");
     $query->execute();
     $results = $query->fetchAll();
-    
     foreach ($results as $result) {
         echo '<div class="imageAndTextContainer">';
         echo '<div class = "imageContainer">';
         echo '<img class="imagesClass" src="' . $result['images'] . '" alt="image of a camera">';
         echo '<br><br>';
         echo '</div>';
-
         echo '<div class = "textContainer">';
         echo '<p>' . $result['brandName'] . '</p>';
         echo '<p>' . $result['model'] . '</p>';
@@ -64,6 +64,9 @@
         echo '</div>';
     }
     ?>
+</div>
+<div class="anchorLink">
+<a href="#div_id"><i class='bx bxs-chevrons-up'></i></a>
 </div>
 <div class="formSection">
 <h2>Add to the collection: </h2>
