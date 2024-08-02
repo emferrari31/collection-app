@@ -14,7 +14,6 @@
 </head>
 <body>
 <div id="div_id"></div>
-
 <h1>My Camera Collection</h1>
 <div class="mainContainer">
     <?php
