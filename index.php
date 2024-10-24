@@ -7,9 +7,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Shrikhand&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Rubik+Mono+One&family=Shrikhand&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="collectionApp.css">
 </head>
 <body>
@@ -83,12 +81,12 @@
 <h2>Add to the collection: </h2>
 <div class="formContainer">
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
-        <p>Brand Name*: <input required type="text" name="brandName"></p>
-        <p>Model*: <input required type="text" name="model"></p>
-        <p>Type*: <input reuired type="text" name="type"></p>
+        <p>Brand Name*:(e.g., Canon, Nikon, Pentax...)<input required type="text" name="brandName"></p>
+        <p>Model*: (e.g., 550D, 1000, 440D...) <input required type="text" name="model"></p>
+        <p>Type*: (e.g., DSLR, Film, Medium Format...) <input reuired type="text" name="type"></p>
         <p>Megapixels: <input type="text" name="megapixels"></p>
-        <p>Weight(g)*: <input required type="text" name="weight(g)"></p>
-        <p>Image*: <input required type="text" name="images"></p>
+        <p>Weight(g)*: (number only)<input required type="text" name="weight(g)"></p>
+        <p>Image*: (Image address) <input required type="text" name="images"></p>
         <input type="submit" class="button">
     </form>
 </div>
